@@ -1,3 +1,13 @@
+<?php 
+                    if(isset($_POST['submit'])){
+                        $solicitante = $_POST['solicitante'];
+                        $servicio = $_POST['servicio'];
+                        $profesional = $_POST['profesional'];
+                        $telefono = $_POST['telefono'];
+                        echo "<p>{$solicitante}, tu informacion ha sido guardada </p>";
+
+                    }
+                ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,28 +29,31 @@
     </div>
     <div class="row py-3">
         <div class="col">
-            <form class="row g-3" action="guardar.php" method="POST" autocomplete="off">
+            <form class="row g-3" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF'])  ?>" method="POST" autocomplete="off">
                 <div class="colmd-4">
-                    <label for="nombre" class="form-label">Nombre Completo</label>
-                    <input type="text" name="nombre" id="nombre" class="form-control" required autofocus>
+                    <label for="solicitante" class="form-label">Nombre Completo</label>
+                    <input type="text" name="solicitante" id="solicitante" class="form-control" required autofocus>
                 </div>
                 <div class="colmd-4">
-                    <label for="precio" class="form-label">Servicio Tecnico</label>
-                    <input type="text" name="precio" id="precio" class="form-control" required autofocus>
+                    <label for="servicio" class="form-label">Servicio Tecnico</label>
+                    <input type="text" name="servicio" id="servicio" class="form-control" required autofocus>
                 </div>
                 <div class="colmd-4">
-                    <label for="precio" class="form-label">Profesional Requerido</label>
-                    <input type="text" name="precio" id="precio" class="form-control" required autofocus>
+                    <label for="profesional" class="form-label">Profesional Requerido</label>
+                    <input type="text" name="profesional" id="profesional" class="form-control" required autofocus>
                 </div>
                 <div class="colmd-4">
-                    <label for="precio" class="form-label">Telefono</label>
-                    <input type="text" name="precio" id="precio" class="form-control" required autofocus>
+                    <label for="telefono" class="form-label" method="POST">Telefono</label>
+                    <input type="number" name="telefono" id="telefono" class="form-control" pattern="[0-9]{6,10}" maxlength="10">
                 </div>
                 <div class="col-md-12">
                 <div style=" display:flex; width: 90%; margin: auto; justify-content: space-around; margin-bottom: 20px; ">
                     <a href="../index.php"> <button  type="button" class="btn btn-secondary btn-lg" style="background-color: #74749E;" > Atras </button> </a> 
-                    <a> <button type="button" class="btn btn-secondary btn-lg" style="background-color: #74749E; height: 50px;" >Siguiente</button> </a> 
+                    <a> <button type="submit" name="t" class="btn btn-secondary btn-lg" style="background-color: #74749E; height: 50px;" >Siguiente</button> </a> 
                 </div>
+                <?php 
+                    include("validar.php");
+                ?>
                 </div>
             </form>
    
