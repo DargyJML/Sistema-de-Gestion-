@@ -24,30 +24,30 @@ class CitasController
         } else {
             $estado = "on";
         }
-        $alumno = new Cita(null, $_POST['nombres'], $_POST['apellidos'], $estado);
+        $cita = new Cita(null, $_POST['nombres'], $_POST['apellidos'], $estado);
 
-        Cita::save($alumno);
+        Cita::save($cita);
         $this->show();
     }
 
     function show()
     {
-        $listaAlumnos = Cita::all();
+        $listCitas = Cita::all();
 
         require_once('Views/Cita/show.php');
     }
 
     function updateshow()
     {
-        $id = $_GET['idAlumno'];
-        $alumno = Cita::searchById($id);
+        $id = $_GET['idCita'];
+        $cita = Cita::searchById($id);
         require_once('Views/Cita/updateshow.php');
     }
 
     function update()
     {
-        $alumno = new Cita($_POST['id'], $_POST['nombres'], $_POST['apellidos'], $_POST['estado']);
-        Cita::update($alumno);
+        $cita = new Cita($_POST['id'], $_POST['nombres'], $_POST['apellidos'], $_POST['estado']);
+        Cita::update($cita);
         $this->show();
     }
     function delete()
@@ -61,13 +61,13 @@ class CitasController
     {
         if (!empty($_POST['id'])) {
             $id = $_POST['id'];
-            $alumno = Cita::searchById($id);
-            $listaAlumnos[] = $alumno;
+            $cita = Cita::searchById($id);
+            $listCitas[] = $cita;
             //var_dump($id);
             //die();
             require_once('Views/Cita/show.php');
         } else {
-            $listaAlumnos = Cita::all();
+            $listCitas = Cita::all();
 
             require_once('Views/Cita/show.php');
         }
