@@ -19,7 +19,7 @@ class CitaController
 
     function save()
     {
-        $cita = new Cita(null, $_POST['solicitante'], $_POST['telefono'], $_POST['email'], $_POST['servicio'], $_POST['profesional'], $_POST['fecha'], $_POST['solicitud']);
+        $cita = new Cita(null, $_POST['solicitante'], $_POST['telefono'], $_POST['email'], $_POST['servicio'], $_POST['profesional'], $_POST['fecha'], null);
 
         Cita::save($cita);
         $this->show();

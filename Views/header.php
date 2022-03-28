@@ -13,7 +13,7 @@
     <div class="container">
       <ul class="nav">
         <li class="nav-item m-3">
-          <a class="btn btn-primary" href="?controller=cita&action=register">Agregar Cita</a>
+          <a class="btn btn-primary" href="?controller=cita&action=add">Agregar Cita</a>
         </li>
         <li class="nav-item m-3">
           <a class="btn btn-primary" href="?controller=cita&&action=show">Ver Citas</a>

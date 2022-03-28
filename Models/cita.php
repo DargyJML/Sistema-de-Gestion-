@@ -101,6 +101,20 @@ class Cita {
         
     }
 
+    public static function save($cita) {
+        $db=Database::conectar();
+
+        $insert=$db->prepare('INSERT INTO gestion VALUES (NULL, :solicitante, :telefono, :email, :servicio, :profesional, :fecha, CURRENT_TIMESTAMP)');
+		$insert->bindValue('solicitante',$cita->getSolicitante());
+		$insert->bindValue('telefono',$cita->getTelefono());
+		$insert->bindValue('email',$cita->getEmail());
+        $insert->bindValue('servicio',$cita->getServicio());
+        $insert->bindValue('profesional',$cita->getProfesional());
+        $insert->bindValue('fecha',$cita->getFecha());
+        $insert->execute();
+    }
+
+
     
 
 }
