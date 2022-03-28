@@ -7,7 +7,7 @@ require './Config/conexion.php';
 		$action=$_GET['action'];
 	}else{
 		$controller='cita';
-		$action='index';
+		$action='landing';
 	}
-	require('Views/landing.php');	
+	require('./Views/layout.php');	
 ?>
