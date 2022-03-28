@@ -5,13 +5,13 @@ class Database {
     public function __construct(){
         try{
             $this->mysql = $this->conectar();
-            //echo 'Conexiòn exitosa';
+            //echo 'Conexión exitosa';
         } catch(PDOException $exepcion){
             echo 'Error de conexión' . $exepcion->getMessage();
         }
     }
     
-    function conectar () {
+    public static function conectar () {
         
         $hostname = 'localhost';
         $database = 'gestion';

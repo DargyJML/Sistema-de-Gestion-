@@ -24,71 +24,71 @@ class Cita {
     }
 
     public function getId(){
-        return $this->$id;
+        return $this->id;
     }
 
-    public function setId(){
+    public function setId($id){
         $this->id = $id;
     }
 
     public function getSolicitante(){
-        return $this->$solicitante;
+        return $this->solicitante;
     }
 
-    public function setSolicitante(){
+    public function setSolicitante($solicitante){
         $this->solicitante = $solicitante;
     }
     
     public function getTelefono(){
-        return $this->$telefono;
+        return $this->telefono;
     }
 
-    public function setTelefono(){
+    public function setTelefono($telefono){
         $this->telefono = $telefono;
     }
 
     public function getEmail(){
-        return $this->$email;
+        return $this->email;
     }
 
-    public function setEmail(){
+    public function setEmail($email){
         $this->email = $email;
     }
     
     public function getServicio(){
-        return $this->$servicio;
+        return $this->servicio;
     }
 
-    public function setServicio(){
+    public function setServicio($servicio){
         $this->servicio = $servicio;
     }
 
     public function getProfesional(){
-        return $this->$profesional;
+        return $this->profesional;
     }
 
-    public function setProfesional(){
+    public function setProfesional($profesional){
         $this->profesional = $profesional;
     }
 
     public function getFecha(){
-        return $this->$fecha;
+        return $this->fecha;
     }
 
-    public function setFecha(){
+    public function setFecha($fecha){
         $this->fecha = $fecha;
     }
 
     public function getSolicitud(){
-        return $this->$solicitud;
+        return $this->solicitud;
     }
 
-    public function setSolicitud(){
+    public function setSolicitud($solicitud){
         $this->solicitud = $solicitud;
     }
 
-    public static function list($cita){
-        $db= new Database();
+    public static function list(){
+        $db=Database::conectar();
         $listCitas=[];
 
         $select=$db->query('SELECT * FROM gestion order by id');
@@ -100,5 +100,7 @@ class Cita {
         return $listCitas;
         
     }
+
+    
 
 }

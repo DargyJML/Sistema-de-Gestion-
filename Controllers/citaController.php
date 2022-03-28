@@ -1,6 +1,6 @@
 <?php
 
-class CitasController
+class CitaController
 {
 
     function __construct()
@@ -9,17 +9,17 @@ class CitasController
 
     function landing()
     {
-        require('Views/landing.php');
+        require('./Views/landing.php');
     }
 
     function add()
     {
-        require('Views/solicitar.php');
+        require('./Views/apply.php');
     }
 
     function save()
     {
-        $cita = new Cita(null, $_POST['nombres'], $_POST['apellidos'],);
+        $cita = new Cita(null, $_POST['solicitante'], $_POST['telefono'], $_POST['email'], $_POST['servicio'], $_POST['profesional'], $_POST['fecha'], $_POST['solicitud']);
 
         Cita::save($cita);
         $this->show();
@@ -27,21 +27,21 @@ class CitasController
 
     function show()
     {
-        $listCitas = Cita::all();
+        $listCitas = Cita::list();
 
-        require_once('Views/Cita/show.php');
+        require('./Views/show.php');
     }
 
     function updateshow()
     {
         $id = $_GET['idCita'];
         $cita = Cita::searchById($id);
-        require_once('Views/Cita/updateshow.php');
+        require_once('./Views/updateshow.php');
     }
 
     function update()
     {
-        $cita = new Cita($_POST['id'], $_POST['nombres'], $_POST['apellidos'], $_POST['estado']);
+        $cita = new Cita($_POST['solicitante'], $_POST['telefono'], $_POST['email'], $_POST['servicio'], $_POST['profesional'], $_POST['fecha'], $_POST['solicitud']);
         Cita::update($cita);
         $this->show();
     }
@@ -60,17 +60,17 @@ class CitasController
             $listCitas[] = $cita;
             //var_dump($id);
             //die();
-            require_once('Views/Cita/show.php');
+            require('./Views/show.php');
         } else {
-            $listCitas = Cita::all();
+            $listCitas = Cita::list();
 
-            require_once('Views/Cita/show.php');
+            require('./Views/show.php');
         }
     }
 
     function error()
     {
-        require_once('Views/error.php');
+        require('./Views/error.php');
     }
 }
 

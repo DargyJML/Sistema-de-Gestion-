@@ -21,8 +21,8 @@ function call($controller, $action){
 
 	switch ($controller) {
 		case 'cita':
-		require_once('Models/citas.php');
-		$controller= new CitasController();
+		require('Models/cita.php');
+		$controller= new CitaController();
 		break;			
 		default:
 				# code...

@@ -9,14 +9,14 @@
 </head>
 
 <body>
-  <div style="background-color: #74749E; width: 100%; height: 90px; ">
+  <div style="background-color: #74749E; width: 100%; height: 80px;">
     <div class="container">
       <ul class="nav">
-        <li class="nav-item">
-          <a class="nav-link" href="?controller=alumno&action=register">Registrar</a>
+        <li class="nav-item m-3">
+          <a class="btn btn-primary" href="?controller=cita&action=register">Agregar Cita</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="?controller=alumno&&action=show">Ver</a>
+        <li class="nav-item m-3">
+          <a class="btn btn-primary" href="?controller=cita&&action=show">Ver Citas</a>
         </li>
       </ul>
     </div>
