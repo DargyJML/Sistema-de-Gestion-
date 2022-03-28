@@ -1,3 +1,6 @@
+<section>
+		<?php require('./routing.php'); ?>
+</section>
 <div style="background-color: #74749E; width: 100%; height: 90px; ">
   <!-- div con color --> 
 </div>

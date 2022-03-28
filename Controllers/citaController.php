@@ -7,24 +7,19 @@ class CitasController
     {
     }
 
-    function index()
+    function landing()
     {
-        require_once('Views/Cita/bienvenido.php');
+        require('Views/landing.php');
     }
 
-    function register()
+    function add()
     {
-        require_once('Views/Cita/register.php');
+        require('Views/solicitar.php');
     }
 
     function save()
     {
-        if (!isset($_POST['estado'])) {
-            $estado = "of";
-        } else {
-            $estado = "on";
-        }
-        $cita = new Cita(null, $_POST['nombres'], $_POST['apellidos'], $estado);
+        $cita = new Cita(null, $_POST['nombres'], $_POST['apellidos'],);
 
         Cita::save($cita);
         $this->show();
@@ -75,7 +70,7 @@ class CitasController
 
     function error()
     {
-        require_once('Views/Cita/error.php');
+        require_once('Views/error.php');
     }
 }
 
