@@ -41,7 +41,7 @@ class CitaController
 
     function update()
     {
-        $cita = new Cita($_POST['solicitante'], $_POST['telefono'], $_POST['email'], $_POST['servicio'], $_POST['profesional'], $_POST['fecha'], $_POST['solicitud']);
+        $cita = new Cita($_POST['id'], $_POST['solicitante'], $_POST['telefono'], $_POST['email'], $_POST['servicio'], $_POST['profesional'], $_POST['fecha'], null);
         Cita::update($cita);
         $this->show();
     }

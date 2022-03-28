@@ -114,7 +114,38 @@ class Cita {
         $insert->execute();
     }
 
+    public static function update($cita){
+        $db=Database::conectar();
 
+        $update=$db->prepare('UPDATE gestion SET solicitante=:solicitante, telefono=:telefono, email=:email, servicio=:servicio, profesional=:profesional, fecha=:fecha WHERE id=:id');
+		$update->bindValue('solicitante',$cita->getSolicitante());
+		$update->bindValue('telefono',$cita->getTelefono());
+		$update->bindValue('email',$cita->getEmail());
+        $update->bindValue('servicio',$cita->getServicio());
+        $update->bindValue('profesional',$cita->getProfesional());
+        $update->bindValue('fecha',$cita->getFecha());
+        $update->bindValue('id',$cita->getId());
+        $update->execute();
+    }
+
+    public static function delete($id){
+		$db=Database::conectar();
+		$delete=$db->prepare('DELETE  FROM gestion WHERE id=:id');
+		$delete->bindValue('id',$id);
+		$delete->execute();		
+	}
     
+    public static function searchById($id){
+		$db=Database::conectar();
+		$select=$db->prepare('SELECT * FROM gestion WHERE id=:id');
+		$select->bindValue('id',$id);
+		$select->execute();
+
+		$citaDb=$select->fetch();
+
+		$cita = new Cita ($citaDb['id'],$citaDb['solicitante'], $citaDb['telefono'], $citaDb['email'], $citaDb['servicio'], $citaDb['profesional'], $citaDb['fecha'], $citaDb['solicitud']);
+		return $cita;
+
+	}
 
 }
